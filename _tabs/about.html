@@ -1,0 +1,44 @@
+---
+# 내용은 _content/about.yml 에서 수정
+title: About
+icon: fas fa-info-circle
+order: 4
+---
+{% assign a = site.data.about %}
+
+{% if a.profile %}
+<section class="pf-profile">
+  <div class="pf-profile-text">
+    <p class="pf-profile-head">{{ a.profile.headline }}</p>
+    <p>{{ a.profile.intro }}</p>
+  </div>
+  {% if a.profile.facts %}
+  <ul class="pf-profile-facts">
+    {% for f in a.profile.facts %}
+    <li>
+      <strong>{{ f.label }}</strong>
+      {% if f.link %}<a href="{{ f.link }}"{% unless f.link contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %}>{{ f.value }}</a>{% else %}<span>{{ f.value }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endif %}
+
+{% for s in a.sections %}
+{% assign show = s.show | default: 5 %}
+<section class="pf-cv">
+  <h2>{{ s.title }}</h2>
+  <ul class="pf-cv-list">
+    {% for i in s.items limit: show %}{% include cv-item.html %}{% endfor %}
+  </ul>
+  {% if s.items.size > show %}
+  <details class="pf-cv-more">
+    <summary>나머지 {{ s.items.size | minus: show }}개 더 보기</summary>
+    <ul class="pf-cv-list">
+      {% for i in s.items offset: show %}{% include cv-item.html %}{% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+</section>
+{% endfor %}

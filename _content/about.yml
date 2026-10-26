@@ -1,0 +1,108 @@
+# 정보(About) 페이지 내용. 위에서부터 순서대로 표시됨.
+# - 필요 없는 섹션은 통째로 지우고, 섹션을 새로 추가해도 됨.
+# - link 는 있으면 제목이 링크가 됨. 없으면 줄을 지우면 됨.
+# - 값에 콜론(:)이 들어가면 큰따옴표로 감싸기.
+# - 섹션마다 처음 5개만 보이고 나머지는 "더 보기"로 접힘. 바꾸려면 섹션에 show: 3 처럼 숫자 지정
+
+# 맨 위 소개 칸. 지우면 안 나옴
+profile:
+  headline: "정보보안을 공부하고 있는 김광원(GOOK_BOB)입니다."   # 굵게 나오는 첫 줄
+  intro: >-                                   # 아래 소개 문단 (줄바꿈해서 써도 한 문단으로 이어짐)
+    모의해킹, 침투테스트에 관심이 많으며 새로운 기술을 익히는것을 좋아합니다. 항상 윤리 의식을 가지며 프로젝트를 진행하며 성장하기 위해 노력합니다.
+  facts:                                      # 오른쪽 목록. link 있으면 값이 링크가 됨
+    - label: 이름
+      value: 김광원(GOOK_BOB)
+    - label: 소속
+      value: 강원대학교 컴퓨터공학과
+    - label: 이메일
+      value: gwangwon0807@gmail.com
+      link: mailto:gwangwon0807@gmail.com
+    - label: GitHub
+      value: gwangwon0807
+      link: https://github.com/gwangwon0807
+
+sections:
+  - title: 학력
+    items:
+      - when: "2024.03 – 2027.02"
+        what: "강원대학교 졸업 예정"
+        detail: "컴퓨터공학과, 사이버보안융합학과"
+      - when: "2017.03 – 2020.02"
+        what: "울산에너지고등학교 졸업"
+        detail: "전기에너지학과"
+
+  - title: 프로젝트
+    items:
+      - when: "2026.10"
+        what: "FlowScope"
+        detail: "WHS4, 토큰마니조, 개발 및 연구"
+        link: https://github.com/TokenManiZo
+      - when: "2026.10"
+        what: "PINLM - ML기반 개인 맞춤형 동적 영화 추천 서비스"
+        detail: "캡스톤, 싹싹 감자"
+        link: https://github.com/SSAG-amja
+
+  - title: 취약점 제보
+    items:
+      - when: "2026.10"
+        what: "CVE-2026-109897"
+        detail: "WordPress Strong Testimonials plugin <= 3.3.12 - Broken Access Control vulnerability"
+        link: https://www.cve.org/CVERecord?id=CVE-2026-109897
+      - when: "2026.10"
+        what: "CVE-2026-00000"
+        detail: "아직 CVE 등록전, Opensource"
+
+  - title: 수상
+    items:
+      - when: "2026.10"
+        what: "2026 강원권 AI·SW 페스티벌 [장려상]"
+        detail: "PINLM, 싹싹 감자"
+
+  - title: 자격증
+    items:
+      - when: "2025.09"
+        what: "정보처리기사"
+        detail: "한국산업인력공단"
+      - when: "2022.10"
+        what: "네트워크관리사 2급"
+        detail: "한국정보통신자격협회"
+      - when: "2024.09"
+        what: "SQLD"
+        detail: "한국데이터산업진흥원"
+      - when: "2023.11"
+        what: "TOEIC 860점"
+        detail: "ETS"
+      - when: "2023.04"
+        what: "컴퓨터활용능력 1급"
+        detail: "대한상공회의소"
+
+  - title: 활동
+    items:
+      - when: "2026.06 – 현재"
+        what: "화이트햇스쿨 4기"
+        detail: "교육생, API 취약점 관련 프로젝트"
+
+      - when: "2025.03 – 현재"
+        what: "KNUS(보안동아리)"
+        detail: "보안 동아리 활동, CTF, 취약점 분석"
+
+      - when: "2026.09 – 2026.12"
+        what: "C 프로그래밍 실습 조교 (TA)"
+        detail: "강원대학교 컴퓨터공학과, C 프로그래밍 실습 조교"
+
+  - title: 논문
+    items:
+      - when: "2026.10"
+        what: "FlowScope: 다중 트래픽 소스와 계층 그래프를 이용한API 인가 취약점 분석 프레임워크"
+        detail: "CISC-W 2026 (정보보호학회)"
+
+  - title: 연락처
+    items:
+      - when: "GitHub"
+        what: "gwangwon0807"
+        detail: "코드와 도구"
+        link: https://github.com/gwangwon0807
+      # - when: "이메일"
+      #   what: "you@example.com"
+      #   detail: "제보, 협업 문의"
+      #   link: mailto:you@example.com

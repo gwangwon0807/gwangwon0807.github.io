@@ -1,0 +1,10 @@
+---
+layout: page
+# 태그 하나의 글 목록 (/tags/이름/). 목록 모양은 _includes/post-item.html
+---
+<h1 class="dynamic-title pf-page-title">#{{ page.title }} <span>{{ page.posts | size }}</span></h1>
+<ul class="pf-list">
+  {% for post in page.posts %}
+    {% include post-item.html %}
+  {% endfor %}
+</ul>

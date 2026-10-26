@@ -1,0 +1,15 @@
+{
+  // Cmd+Shift+B: 미리보기 서버 실행 (http://localhost:4000, 저장하면 자동 새로고침)
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "블로그 미리보기",
+      "type": "shell",
+      // 작업 실행 셸은 ~/.zshrc 를 안 읽어서 macOS 기본 Ruby 2.6 이 잡힘 → Homebrew 쪽을 직접 지정
+      "command": "/opt/homebrew/bin/bundle exec jekyll s -l",
+      "isBackground": true,
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

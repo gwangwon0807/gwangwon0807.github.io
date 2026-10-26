@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- comment -%}
+  테마 기본 home 레이아웃을 덮어씀: 글 목록 (한 페이지에 _config.yml 의 paginate 개수, 넘으면 페이지 버튼).
+  목록 한 줄 모양은 _includes/post-item.html.
+{%- endcomment -%}
+{% assign posts = site.posts | where_exp: 'item', 'item.hidden != true' %}
+
+{% if posts.size == 0 %}
+  <p class="pf-empty">아직 올린 글이 없습니다.</p>
+{% else %}
+  <ul class="pf-list pf-home-list">
+    {% for post in paginator.posts %}
+      {% include post-item.html %}
+    {% endfor %}
+  </ul>
+  {% if paginator.total_pages > 1 %}
+    {% include post-paginator.html %}
+  {% endif %}
+{% endif %}

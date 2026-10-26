@@ -1,0 +1,17 @@
+---
+# 카테고리 개별 페이지는 없음. /categories/이름/ 로 오면 카테고리 목록의 해당 상자로 이동 (글 하단 링크용)
+---
+{% capture target %}{{ '/categories/' | relative_url }}#{{ page.title | slugify }}{% endcapture %}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0; url={{ target }}">
+  <link rel="canonical" href="{{ target | absolute_url }}">
+</head>
+<body>
+  <a href="{{ target }}">{{ page.title }} 카테고리로 이동</a>
+</body>
+</html>

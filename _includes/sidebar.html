@@ -1,0 +1,121 @@
+<!--
+  테마 sidebar 덮어씀: 내용은 _content/sidebar.yml 에서 읽음 (사진, 이름, 한 줄 소개, 아이콘 링크).
+  id, class 는 테마 스크립트(메뉴 열기, 화면 모드 버튼)가 쓰므로 바꾸지 말 것.
+-->
+{%- assign me = site.data.sidebar -%}
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <header class="profile-wrapper">
+    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
+      {%- if me.avatar -%}
+        <img src="{{ me.avatar | prepend: '/assets/me/' | relative_url }}" width="112" height="112" alt="avatar" onerror="this.remove()">
+      {%- endif -%}
+    </a>
+
+    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ me.name }}</a>
+    <p class="site-subtitle mb-0">{{ me.tagline }}</p>
+  </header>
+  <!-- .profile-wrapper -->
+
+  <nav class="flex-column flex-grow-1 w-100 ps-0">
+    <ul class="nav">
+      <!-- home -->
+      <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
+        <a href="{{ '/' | relative_url }}" class="nav-link">
+          <i class="fa-fw fas fa-home"></i>
+          <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+        </a>
+      </li>
+      <!-- the real tabs -->
+      {% for tab in site.tabs %}
+        <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
+          <a href="{{ tab.url | relative_url }}" class="nav-link">
+            <i class="fa-fw {{ tab.icon }}"></i>
+            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+
+            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+          </a>
+        </li>
+        <!-- .nav-item -->
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
+    {% unless site.theme_mode == 'light' or site.theme_mode == 'dark' %}
+      {%- capture icon_system -%}
+        <i class="fa-solid fa-display" data-theme-mode="system"></i>
+      {%- endcapture -%}
+
+      {%- capture icon_light -%}
+        <i class="fa-regular fa-sun" data-theme-mode="light"></i>
+      {%- endcapture -%}
+
+      {%- capture icon_dark -%}
+        <i class="fa-regular fa-moon" data-theme-mode="dark"></i>
+      {%- endcapture -%}
+
+      <div class="btn-group dropup">
+        <button
+          type="button"
+          class="btn btn-link nav-link"
+          aria-label="Switch Mode"
+          id="mode-toggle"
+          data-bs-toggle="dropdown"
+        >
+          {{- icon_light -}}
+          {{- icon_dark -}}
+          {{- icon_system -}}
+        </button>
+        <ul class="dropdown-menu rounded-3 mb-1 p-1">
+          <li>
+            <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="light">
+              {{- icon_light -}}
+              {{- site.data.locales[lang].theme.light -}}
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="dark">
+              {{- icon_dark -}}
+              {{- site.data.locales[lang].theme.dark -}}
+            </button>
+          </li>
+          <li>
+            <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="system">
+              {{- icon_system -}}
+              {{- site.data.locales[lang].theme.system -}}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      {% if me.links.size > 0 %}
+        <span class="icon-border"></span>
+      {% endif %}
+    {% endunless %}
+
+    {% for link in me.links %}
+      {%- case link.type -%}
+        {%- when 'github' -%}{%- assign icon = 'fab fa-github' -%}
+        {%- when 'email' -%}{%- assign icon = 'fas fa-envelope' -%}
+        {%- when 'linkedin' -%}{%- assign icon = 'fab fa-linkedin' -%}
+        {%- when 'x', 'twitter' -%}{%- assign icon = 'fa-brands fa-x-twitter' -%}
+        {%- when 'instagram' -%}{%- assign icon = 'fab fa-instagram' -%}
+        {%- when 'youtube' -%}{%- assign icon = 'fab fa-youtube' -%}
+        {%- else -%}{%- assign icon = 'fas fa-link' -%}
+      {%- endcase -%}
+      {%- if link.type == 'email' -%}
+        {%- assign email = link.url | split: '@' -%}
+        <a href="javascript:void(location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))" aria-label="email">
+          <i class="{{ link.icon | default: icon }}"></i>
+        </a>
+      {%- else -%}
+        <a href="{{ link.url }}" aria-label="{{ link.type }}" target="_blank" rel="noopener noreferrer">
+          <i class="{{ link.icon | default: icon }}"></i>
+        </a>
+      {%- endif -%}
+    {% endfor %}
+  </div>
+  <!-- .sidebar-bottom -->
+</aside>
+<!-- #sidebar -->

@@ -1,0 +1,19 @@
+---
+layout: page
+# 태그 전체 (/tags/): 이름순, 태그마다 상자 (옆에 글 수)
+---
+{% assign names = '' | split: '' %}
+{% for t in site.tags %}
+  {% assign names = names | push: t[0] %}
+{% endfor %}
+{% assign names = names | sort_natural %}
+
+<ul class="pf-tags">
+  {% for t in names %}
+    <li>
+      <a href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+        #{{ t }} <span>{{ site.tags[t].size }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

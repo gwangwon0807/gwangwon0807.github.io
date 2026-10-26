@@ -1,0 +1,17 @@
+{%- comment -%}
+  글 맨 위 시리즈 상자 (velog 스타일). 글 front matter 에 series: 이름 이 있으면 플러그인이 자동으로 넣음.
+  주의: 마크다운 본문 안에 들어가므로 빈 줄을 넣지 말 것.
+{%- endcomment -%}
+{%- assign list = page.series_list -%}
+{%- assign idx = page.series_index -%}
+<div class="pf-series">
+<p class="pf-series-name"><span>시리즈</span>{{ page.series }}</p>
+<details class="pf-series-list">
+<summary>목록 보기</summary>
+<ul>
+{%- for p in list -%}
+<li{% if forloop.index == idx %} class="current"{% endif %}><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+{%- endfor -%}
+</ul>
+</details>
+</div>

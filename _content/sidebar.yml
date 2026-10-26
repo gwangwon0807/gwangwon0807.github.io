@@ -1,0 +1,14 @@
+# 왼쪽 사이드바. 여기 이름이 사이트 제목(브라우저 탭)으로도 쓰임.
+
+name: GOOK_BOB
+tagline: 스근한 국밥 한그릇🍲🍚
+
+# 프로필 사진: 이 폴더(_content)에 사진을 넣고 파일 이름만 적기. 비우면 기본 아이콘
+avatar: profile.jpg       # 예: profile.jpg
+
+# 아래쪽 아이콘. 순서대로 표시. type: github, email, linkedin, x, instagram, youtube (그 외는 링크 아이콘)
+links:
+  - type: github
+    url: https://github.com/gwangwon0807
+  - type: email
+    url: gwangwon0807@gmail.com    # 공개됨. 숨기려면 이 두 줄 삭제

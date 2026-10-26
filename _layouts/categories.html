@@ -1,0 +1,37 @@
+---
+layout: page
+# 카테고리 전체 (/categories/): 카테고리마다 접고 펼치는 상자. 펼치면 그 카테고리 글 목록
+# 주소 끝에 #이름 이 붙어 있으면 (예: /categories/#ctf) 그 상자를 펼친 채로 보여줌
+---
+{% assign cats = site.categories | sort %}
+
+<div class="pf-groups">
+  {% for c in cats %}
+    {% assign name = c[0] %}
+    {% assign ps = c[1] %}
+    <details class="pf-group" id="{{ name | slugify }}">
+      <summary>
+        <span class="pf-group-name">{{ name }}</span>
+        <span class="pf-group-count">{{ ps.size }}</span>
+      </summary>
+      <ul>
+        {% for post in ps %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          </li>
+        {% endfor %}
+      </ul>
+    </details>
+  {% endfor %}
+</div>
+
+<script>
+  (function () {
+    var id = decodeURIComponent(location.hash.slice(1));
+    var box = id && document.getElementById(id);
+    if (box && box.tagName === 'DETAILS') {
+      box.open = true;
+    }
+  })();
+</script>

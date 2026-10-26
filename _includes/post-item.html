@@ -1,0 +1,26 @@
+{%- comment -%}
+  글 목록 한 줄 (홈, 카테고리, 태그 공통).
+  왼쪽: 제목, 요약(description), 카테고리와 날짜 / 오른쪽: 대표 이미지(image)
+{%- endcomment -%}
+{%- assign src = post.image.path | default: post.image -%}
+{%- if src and post.media_subpath -%}
+  {%- unless src contains '://' -%}
+    {%- assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' -%}
+  {%- endunless -%}
+{%- endif -%}
+<li class="pf-item" data-title="{{ post.title | downcase | escape }}">
+  <a href="{{ post.url | relative_url }}">
+    <div class="pf-item-text">
+      <h2>{{ post.title }}</h2>
+      {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      <div class="pf-meta">
+        {% if post.categories.size > 0 %}<span class="pf-cat">{{ post.categories | first }}</span>{% endif %}
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+      </div>
+    </div>
+    {% if src %}
+      <div class="pf-thumb" role="img" aria-label="{{ post.image.alt | default: post.title | escape }}"
+        style="background-image: url('{{ src | relative_url }}')"></div>
+    {% endif %}
+  </a>
+</li>

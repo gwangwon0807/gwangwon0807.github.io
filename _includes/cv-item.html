@@ -1,0 +1,12 @@
+{%- comment -%} 정보 페이지 한 항목: 글머리 + 제목 / 오른쪽 날짜, 설명은 바로 아래 줄 {%- endcomment -%}
+<li>
+  <div class="pf-cv-head">
+    {% if i.link %}
+    <a href="{{ i.link }}" target="_blank" rel="noopener">{{ i.what }} <i class="fas fa-arrow-up-right-from-square"></i></a>
+    {% else %}
+    <strong>{{ i.what }}</strong>
+    {% endif %}
+    <span class="pf-cv-when">{{ i.when }}</span>
+  </div>
+  {% if i.detail %}<p>{{ i.detail }}</p>{% endif %}
+</li>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" font-family="Menlo, Consolas, monospace" font-size="22">
+  <rect width="1000" height="420" rx="14" fill="#1b1f24"/>
+  <rect width="1000" height="48" rx="14" fill="#2a2f36"/><rect y="34" width="1000" height="14" fill="#2a2f36"/>
+  <circle cx="30" cy="24" r="7" fill="#e06c75"/><circle cx="54" cy="24" r="7" fill="#e5c07b"/><circle cx="78" cy="24" r="7" fill="#98c379"/>
+  <text x="500" y="31" font-size="16" fill="#8b949e" text-anchor="middle">terminal</text>
+  <text x="30" y="100" fill="#98c379">$ <tspan fill="#e6edf3">nmap -sV -p- 10.10.10.10</tspan></text>
+  <text x="30" y="145" fill="#8b949e">PORT     STATE SERVICE VERSION</text>
+  <text x="30" y="180" fill="#e6edf3">22/tcp   open  ssh     OpenSSH 8.9p1</text>
+  <text x="30" y="215" fill="#e6edf3">80/tcp   open  http    nginx 1.24.0</text>
+  <text x="30" y="250" fill="#e6edf3">3306/tcp open  mysql   MySQL 8.0.36</text>
+  <text x="30" y="305" fill="#98c379">$ <tspan fill="#e6edf3">curl -s http://10.10.10.10/robots.txt</tspan></text>
+  <text x="30" y="345" fill="#a8e3e8">Disallow: /admin-backup/</text>
+  <rect x="30" y="370" width="12" height="24" fill="#e6edf3"/>
+</svg>

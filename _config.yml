@@ -1,0 +1,72 @@
+# 직접 쓰는 내용(글, 사이드바, 정보 페이지)은 전부 _content/ 폴더에 있음.
+# 이 파일은 사이트 동작 설정. 보통은 url 만 바꾸면 됨.
+
+url: "https://gwangwon0807.github.io" # TODO: 배포 주소 (GitHub 아이디)
+description: 정보보안에 관심이 많으며 윤리 의식을 가지며 성장하는 화이트해커 입니다. # 검색엔진, 링크 미리보기용 설명
+lang: ko-KR
+timezone: Asia/Seoul
+theme_mode: # 비우면 OS 설정 따라감 / light / dark
+paginate: 10 # 홈 한 페이지에 보일 글 수
+data_dir: _content # sidebar.yml, about.yml 위치
+
+# ===== 아래는 테마 설정 (건드릴 필요 없음) =====
+theme: jekyll-theme-chirpy
+baseurl: ""
+toc: true
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - README.md
+  - Gemfile*
+  - .vscode
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
