@@ -49,14 +49,18 @@ sections:
         detail: "WordPress Strong Testimonials plugin <= 3.3.12 - Broken Access Control vulnerability"
         link: https://www.cve.org/CVERecord?id=CVE-2026-109897
       - when: "2026.10"
-        what: "CVE-2026-00000"
-        detail: "아직 CVE 등록전, Opensource"
+        what: "CVE-2026-117554"
+        detail: "admidio · Client-Side Enforcement of Server-Side Security"
+        link: https://www.cve.org/CVERecord?id=CVE-2026-117554
 
   - title: 수상
     items:
       - when: "2026.10"
         what: "2026 강원권 AI·SW 페스티벌 [장려상]"
         detail: "PINLM, 싹싹 감자"
+      - when: "2026.10"
+        what: "2026 GCHD [동상]"
+        detail: "강원지역 사이버보안 해킹방어대회, st3p_up"
 
   - title: 자격증
     items:
