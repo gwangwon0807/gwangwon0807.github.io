@@ -47,7 +47,6 @@ cp -R _content/posts/000000_template _content/posts/261020_flowscope
 
 ```yaml
   - title: 취약점 제보          # 섹션 이름
-    show: 3                    # 선택: 처음에 보일 개수 (기본 5, 나머지는 "더 보기")
     items:
       - when: "2026.03"         # 오른쪽 날짜
         what: "CVE-2026-12345"  # 굵은 제목

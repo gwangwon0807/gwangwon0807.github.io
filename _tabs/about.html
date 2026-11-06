@@ -26,19 +26,10 @@ order: 4
 {% endif %}
 
 {% for s in a.sections %}
-{% assign show = s.show | default: 5 %}
 <section class="pf-cv">
   <h2>{{ s.title }}</h2>
   <ul class="pf-cv-list">
-    {% for i in s.items limit: show %}{% include cv-item.html %}{% endfor %}
+    {% for i in s.items %}{% include cv-item.html %}{% endfor %}
   </ul>
-  {% if s.items.size > show %}
-  <details class="pf-cv-more">
-    <summary>나머지 {{ s.items.size | minus: show }}개 더 보기</summary>
-    <ul class="pf-cv-list">
-      {% for i in s.items offset: show %}{% include cv-item.html %}{% endfor %}
-    </ul>
-  </details>
-  {% endif %}
 </section>
 {% endfor %}

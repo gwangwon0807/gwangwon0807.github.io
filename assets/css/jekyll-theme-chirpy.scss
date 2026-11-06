@@ -522,7 +522,7 @@ header .post-meta > .d-flex.justify-content-between {
   }
 }
 
-/* 정보 페이지: 섹션마다 상자 + 한 줄 목록 (길면 "더 보기"로 접힘) */
+/* 정보 페이지: 섹션마다 상자 + 한 줄 목록 */
 .pf-cv {
   margin-top: 1rem;
   padding: 1.25rem 1.6rem 0.75rem;
@@ -614,17 +614,6 @@ header .post-meta > .d-flex.justify-content-between {
   font-size: 0.88rem;
   color: var(--text-muted-color);
   font-variant-numeric: tabular-nums;
-}
-
-.pf-cv-more {
-  summary {
-    padding: 0.6rem 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--pf-accent);
-    cursor: pointer;
-  }
-
 }
 
 @media (max-width: 767px) {

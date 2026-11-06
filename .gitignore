@@ -8,3 +8,4 @@ Gemfile.lock
 # 로컬 전용
 .claude
 .DS_Store
+.serena
